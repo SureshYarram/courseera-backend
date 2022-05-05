@@ -19,5 +19,13 @@ router.get("/", async(req,res)=>{
     res.status(200).send(searchitem)
 
 })
+router.get("/:id", async(req,res)=>{
+
+    const searchitem = await Serach.findById(req.params.id).lean().exec();
+    
+    res.status(200).send(searchitem)
+
+})
+
 
 module.exports = router;
